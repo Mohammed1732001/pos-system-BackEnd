@@ -6,7 +6,7 @@ import { auth, authAdmin, verifyToken } from "../../middleWare/autorization.js";
 
 const router = Router();
 
-router.get("/", verifyToken, auth, productController.getProduct)
+router.get("/",  productController.getProduct)
 router.patch("/:id", verifyToken, auth, authAdmin, productController.updateProduct)
 router.post("/",verifyToken,auth,authAdmin,fileUpload(fileValidation.image).single("image"),productController.addProduct);
 router.delete("/:id", verifyToken, auth, authAdmin, productController.deleteProduct)
